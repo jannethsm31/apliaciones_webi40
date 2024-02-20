@@ -1,0 +1,5 @@
+$def with (datos)
+$for contacto in datos:
+            <tr>
+                <td>$contacto.get("nombre", "")</td>
+                <td>$contacto.get("email", "")</td>
