@@ -1,0 +1,51 @@
+$def with (productos)
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de productos</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container text-center">
+        <br>
+        <form action="" method="post">
+            <label for="buscar" class="">Buscar producto: </label>
+            <input type="text" name="buscar" placeholder="buscar" class="">
+            <button type="submit" class="btn btn-danger">Buscar</button>
+        </form>
+        <br>
+            <h1>Lista de productos</h1>
+            <br>
+
+        <table class="table table-borderless">
+            <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Detalles</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Existencias</th>
+                <th scope="col">Opciones</th>
+            </tr>
+            </thead>
+            <tbody>
+                $for producto in productos:
+                    <tr>
+                        <td>$producto['nombre']</td>
+                        <td>$producto['descripcion']</td>
+                        <td>$producto['precio']</td>
+                        <td>$producto['existencias']</td>
+                        <td>
+                            <span><a href="/actualizar/$producto['id_productos']" class="btn btn-secondary ml-2">Actualizar</a></span>
+                            <span><a href="/detalle/$producto['id_productos']" class="btn btn-secondary ml-2">Detalle</a></span>
+                            <span><a href="/borrar/$producto['id_productos']" class="btn btn-secondary ml-2">Borrar</a></span>
+                            
+                        </td>                    
+                    </tr>
+            </tbody>
+        </table>
+        <a href="/insertar" class="btn btn-danger">Insertar</a>
+     </div>
+</body>
+</html>

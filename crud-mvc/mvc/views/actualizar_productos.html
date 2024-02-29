@@ -1,0 +1,44 @@
+$def with(productos)
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar productos</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container text-center">
+        <div class="input-group mb-3">
+            <br>
+            <br>
+            <h1 class="mb-3">Actualizar producto</h1>
+            $for producto in productos:
+            <form action="" method="POST">
+                <input type="hidden" name="producto" id="producto" value="$producto['id_productos']" >
+                <br>
+                <br>
+                <br>
+                <label for="nombre" class="">Nombre: </label>
+                <input type="text" id="nombre" name="nombre" value="$producto['nombre']" class="form-control" aria-describedby="basic-addon2" required>
+                <br>
+
+                <label for="descripcion" class="">Descripcion: </label>
+                <textarea id="descripcion" name="descripcion" class="form-control" aria-describedby="basic-addon2" required>$producto['descripcion']</textarea>
+                <br>
+
+                <label for="precio" class="">Precio: </label>
+                <input type="text" id="precio" name="precio" value="$producto['precio']" class="form-control" aria-describedby="basic-addon2" required>
+                <br>
+
+                <label for="existencias" class="">Existencias: </label>
+                <input type="text" id="existencias" name="existencias" value="$producto['existencias']" class="form-control" aria-describedby="basic-addon2" required>
+                <br>
+
+                <button type="submit" class="btn btn-danger">Actualizar</button>
+                <a href="/" class="btn btn-secondary ml-2">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
